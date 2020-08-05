@@ -1,0 +1,1 @@
+# Cloudify manager and NewRelic integration example
