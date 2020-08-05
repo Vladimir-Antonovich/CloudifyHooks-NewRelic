@@ -1,0 +1,20 @@
+rest_calls:
+  - path: /v1/accounts/{{account_id}}/events
+    method: POST
+    headers:
+      Content-type: application/json
+      X-Insert-Key: {{api_key}}
+    payload:
+      - eventType: {{__inputs__.event_type|tojson}}
+        deployment_id: {{__inputs__.deployment_id|tojson}}
+        is_system_workflow: {{__inputs__.is_system_workflow|tojson}}
+        blueprint_id: {{__inputs__.blueprint_id|tojson}}
+        tenant_name: {{__inputs__.tenant_name|tojson}}
+        workflow_id: {{__inputs__.workflow_id|tojson}}
+        timestamp: {{__inputs__.timestamp|tojson}}
+        execution_id: {{__inputs__.execution_id|tojson}}
+    response_format: json
+    recoverable_codes: []
+    response_translation: {}
+    response_expectation:
+      - ['success', 'True']
